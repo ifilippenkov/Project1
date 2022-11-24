@@ -11,14 +11,14 @@ def vernam(stroka, language, flag, key=''):
             for i in value:
                 if language == 'RU':
                     alphabetU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-                    if not i in alphabetU and not i in alphabetU.lower():
+                    if i not in alphabetU and i not in alphabetU.lower():
                         value2 += i
                     else:
                         step = randint(0,32)
                         value2 += alphabetU[step]
                 else:
                     alphabetU = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    if not i in alphabetU and not i in alphabetU.lower():
+                    if i not in alphabetU and i not in alphabetU.lower():
                         value2 += i
                     else:
                         step = randint(0,25)
@@ -28,7 +28,7 @@ def vernam(stroka, language, flag, key=''):
         return ' '.join(stroka), ' '.join(key)
     key = key.split()
     stroka = stroka.split()
-    if (len(key) != len(stroka)):
+    if len(key) != len(stroka):
         return 'Ключ не верный'
     for index, value in enumerate(stroka):
         if len(value) != len(key[index]):
